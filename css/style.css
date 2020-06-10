@@ -1,0 +1,14 @@
+entry {
+  font-size: 30px;
+  font-weight: 300;
+}
+
+.reset-button {
+  background: linear-gradient(to top, #b22222 20%, #dc143c 80% );
+  color: #fff;
+}
+
+.calculate {
+  background: linear-gradient(to top, #6495ed 20%, #1e90ff 80%);
+  color: #fff;
+}
