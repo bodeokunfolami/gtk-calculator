@@ -1,4 +1,5 @@
 import gi
+
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk as gtk, Gdk
 
@@ -11,10 +12,6 @@ class Handlers:
     @staticmethod
     def on_destroy(*args):
         gtk.main_quit()
-
-    @staticmethod
-    def calculate(entry):
-        print(entry)
 
     def on_reset_clicked(self, button):
         self.screen.set_text('')
@@ -52,18 +49,16 @@ class Handlers:
             screen_context.add_class("danger-border")
 
 
-class Calculator:
+def main():
+    builder = gtk.Builder()
+    builder.add_from_file("window.glade")
+    entry = builder.get_object("screen")
+    handlers = Handlers(entry)
+    builder.connect_signals(handlers)
 
-    def __init__(self):
-        self.builder = gtk.Builder()
-        self.builder.add_from_file("window.glade")
-        entry = self.builder.get_object("screen")
-        handlers = Handlers(entry)
-        self.builder.connect_signals(handlers)
-
-        self.window = self.builder.get_object("window1")
-        self.window.set_position(gtk.WindowPosition.CENTER_ALWAYS)
-        self.window.show_all()
+    window = builder.get_object("window1")
+    window.set_position(gtk.WindowPosition.CENTER_ALWAYS)
+    window.show_all()
 
 
 if __name__ == '__main__':
@@ -74,5 +69,5 @@ if __name__ == '__main__':
         style_provider,
         gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
     )
-    Calculator()
+    main()
     gtk.main()
