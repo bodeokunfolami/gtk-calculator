@@ -1,6 +1,11 @@
 entry {
   font-size: 30px;
   font-weight: 300;
+  box-shadow: none;
+}
+
+.danger-border {
+  border: 2px solid Red;
 }
 
 .reset-button {

@@ -1,2 +1,3 @@
-# gtk-calculator
-A GTK Application with python and the pygobject library
+# Gtk Calculator
+
+This is a gui app built using python bindings for gtk+3 
